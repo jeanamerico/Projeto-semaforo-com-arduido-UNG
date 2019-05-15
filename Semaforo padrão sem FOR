@@ -1,0 +1,53 @@
+//Jean Américo da Silva 2019-05-04
+int valor;
+int BOT = 8; //Botão para fechar semaforo
+int VM = 13; //saidas de sinal para led
+int AM = 12; //saidas de sinal para led
+int VD = 11; //saidas de sinal para led
+
+void setup() {
+  pinMode(VM, OUTPUT); //Vermelho saida
+  pinMode(AM, OUTPUT); //Amarelo saida
+  pinMode(VD, OUTPUT); //Verde saida
+  pinMode(BOT, INPUT); //Botão entrada
+
+}
+
+void loop() {
+  //Botão
+  valor= digitalRead(BOT); //Botão
+  if(valor==1){
+    delay(5000); //5seg
+    digitalWrite(VD, LOW); //Verde apagado
+    digitalWrite(AM, HIGH); //amarelo ligado
+    digitalWrite(VM,LOW); // vermeho apagado
+    delay(2000); //2seg
+
+    digitalWrite(AM,LOW); //amarelo apagado
+    digitalWrite(VM,HIGH); // vermelho ligado
+    delay(5000); //5seg
+  }
+  else
+  {
+    digitalWrite(VD, HIGH); // verde ligado
+    digitalWrite(AM, LOW); // amarelo apagado
+    digitalWrite(VM, LOW); //vermelho apagado
+
+  }
+
+
+  //Led verde ligado on8 seg
+  digitalWrite(VD, HIGH); //Led ligado
+  digitalWrite(AM, LOW);  //Led apagado
+  digitalWrite(VM, LOW);  //Led apagado
+  delay(8000); //Tempo 1k vale 1 seg
+
+  //Ligar Led amarelo 2seg
+  digitalWrite(VD, LOW); //verde apagado
+  digitalWrite(AM, HIGH);  //amarelo ligado
+  delay(2000); //2seg
+
+  //Ligar Led vermelho on8Seg
+  digitalWrite(AM, LOW); //amarelo apagado
+  digitalWrite(VM, HIGH); //vermlho ligado
+  delay(8000); //8 seg
