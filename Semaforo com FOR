@@ -1,0 +1,46 @@
+//declaração de variavel
+int led[3] = {13,12,11}; //Saidas dos pinos
+int tempo = 2000; //tempo cada 1k é equivalente a 1seg
+
+void setup() {
+  // Pinos de saida
+  pinMode(led,OUTPUT); //Identificando que os pinos são dados de saida
+
+  }//Fecha Setup
+
+void loop() {
+  /*
+   *▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+   *Jean Américo da Silva
+   *2019/04/27
+   *▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+   */
+  for(int x=0;x<=2;x++){ //função for para ser feito a transição de um led para outro
+  digitalWrite(led[x],HIGH); //HIGH led ligado
+  delay(tempo); // tempo de execução
+  digitalWrite(led[x],LOW); // LOW led desligado
+  delay(tempo); // tempo de execução
+
+  }
+
+
+   /*
+   *▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+   *Jean Américo da Silva
+   *2019/04/27
+   *▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀
+    */
+
+  //apartir desta linha eu tentei simular a solicitação para ir ao led vermelho simulando um pedestre ao querer atravessar
+
+  delay(5000); // tempo de execução
+  for(int x=0;x<=2;x++){  // função para transição dos led
+  digitalWrite(led[1],HIGH);
+  delay(tempo);
+  digitalWrite(led[1],LOW);
+  delay(tempo);
+  delay(5000);
+
+}
+
+}//Fecha loop
